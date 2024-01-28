@@ -3,6 +3,17 @@ Electron Security - ipcRenderer.on() Misuse Demo
 
 This is a demo app to experiment with the insecure use of Electron's ipcRenderer.on() in the preload script. 
 
+Running
+-------
+
+```
+npm install
+npm start
+```
+
+Notes
+-----
+
 As of this writing the official [documentation](https://www.electronjs.org/docs/latest/tutorial/ipc#2-expose-ipcrendereron-via-preload) states this:
 
 > Security warning - We don't directly expose the whole ipcRenderer.on API for security reasons. Make sure to limit the renderer's access to Electron APIs as much as possible. Also don't just pass the callback to ipcRenderer.on as this will leak ipcRenderer via event.sender. Use a custom handler that invoke the callback only with the desired arguments.
@@ -46,8 +57,7 @@ However, in the latest Electron version (28.x as of this writing) this results i
 WebContents #1 called ipcRenderer.sendSync() with 'ELECTRON_BROWSER_REQUIRE' channel without listeners.
 ```
 
-Impact Analysis
----------------
+### Impact Analysis
 
 It seems, that the internal IPC channels used in [previous](https://github.com/illikainen/exploits/blob/master/nightmare-ipc/exploit.py) [exploits](https://blog.doyensec.com/2019/04/03/subverting-electron-apps-via-insecure-preload.html) are no longer present. 
 
