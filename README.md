@@ -5,8 +5,7 @@ This is a demo app to experiment with the insecure use of Electron's ipcRenderer
 
 As of this writing the official [documentation](https://www.electronjs.org/docs/latest/tutorial/ipc#2-expose-ipcrendereron-via-preload) states this:
 
-> Security warning
-> We don't directly expose the whole ipcRenderer.on API for security reasons. Make sure to limit the renderer's access to Electron APIs as much as possible. Also don't just pass the callback to ipcRenderer.on as this will leak ipcRenderer via event.sender. Use a custom handler that invoke the callback only with the desired arguments.
+> Security warning - We don't directly expose the whole ipcRenderer.on API for security reasons. Make sure to limit the renderer's access to Electron APIs as much as possible. Also don't just pass the callback to ipcRenderer.on as this will leak ipcRenderer via event.sender. Use a custom handler that invoke the callback only with the desired arguments.
 
 The following *secure* code example is provided:
 
