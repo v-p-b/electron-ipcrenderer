@@ -63,6 +63,6 @@ It seems, that the internal IPC channels used in [previous](https://github.com/i
 
 This is _likely_ the result of [separating](https://github.com/electron/electron/pull/13940) internal IPC channels from the ones available for developers. I couldn't bisect the Electron versions where both ContextBrige based IPC and abusable internal channels are present.
 
-Some [writeups](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/electron-desktop-apps/electron-contextisolation-rce-via-ipc) suggest that one may still be able to make unexpected calls to IPC channels defined by application developers, however these channels are by definition meant to be called from the Renderer, and are exposed to any attacker who can execute code there (e.g. via XSS) anyway, without relying on insecure preloads. 
+Some [writeups](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/electron-desktop-apps/electron-contextisolation-rce-via-ipc) suggest that one may still be able to make unexpected calls to IPC channels defined by application developers, however these channels are by definition meant to be called from the Renderer, and are exposed to any attacker who can execute code there (e.g. via XSS) anyway, without relying on the discussed anti-pattern in preloads. 
 
 
